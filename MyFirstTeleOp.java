@@ -13,6 +13,8 @@ int rawSpeedMultiplier = 1;
  private DcMotor rightbackDrive;
  private DcMotor leftfrontDrive;
  private DcMotor rightfrontDrive;
+ 
+ 
 
 
     @Override   // This is where you map the the defined motors with a new name that you can remember.
@@ -21,6 +23,12 @@ int rawSpeedMultiplier = 1;
     rightbackDrive = hardwareMap.get(DcMotor.class, "BRM");         
     leftfrontDrive = hardwareMap.get(DcMotor.class, "FLM");  
     rightfrontDrive = hardwareMap.get(DcMotor.class, "FRM");
+    
+    // Reverse the motor that runs backwards when connected directly to the battery
+    leftbackDrive.setDirection(DcMotor.Direction.FORWARD);
+    rightbackDrive.setDirection(DcMotor.Direction.REVERSE);
+    leftfrontDrive.setDirection(DcMotor.Direction.FORWARD);
+    rightfrontDrive.setDirection(DcMotor.Direction.REVERSE);
 
     waitForStart();// this ask the phone for when you press the start button.
 
@@ -35,8 +43,8 @@ int rawSpeedMultiplier = 1;
         // Ignore this code
 
         //Arcade drive: The left stick controls speed while the right stick controls direction 
-        double leftPower = Range.clip(gamepad1.left_stick_y - gamepad1.right_stick_x, -1, 1); 
-        double rightPower = Range.clip(gamepad1.left_stick_y + gamepad1.right_stick_x,-1 ,1);  
+        double leftPower = Range.clip(gamepad1.left_stick_y - gamepad1.left_stick_x, -1, 1); 
+        double rightPower = Range.clip(gamepad1.right_stick_y + gamepad1.right_stick_x,-1 ,1);  
 
         leftbackDrive.setPower(leftPower);
         leftfrontDrive.setPower(leftPower);
