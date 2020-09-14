@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 public class MyFirstTeleOp extends LinearOpMode {
 //speed
 int rawSpeedMultiplier = 1;
-//the motors that have been defined in your phones will be stated here
+//the motors that have been defined in your code will be stated here
  private DcMotor leftbackDrive;
  private DcMotor rightbackDrive;
  private DcMotor leftfrontDrive;
