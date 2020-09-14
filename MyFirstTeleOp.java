@@ -15,7 +15,7 @@ int rawSpeedMultiplier = 1;
  private DcMotor rightfrontDrive;
 
 
-    @Override   // This
+    @Override   // This is where you map the the defined motors with a new name that you can remember.
     public void runOpMode(){
     leftbackDrive = hardwareMap.get(DcMotor.class, "BLM"); 
     rightbackDrive = hardwareMap.get(DcMotor.class, "BRM");         
@@ -26,29 +26,29 @@ int rawSpeedMultiplier = 1;
 
      while (opModeIsActive()){
 
-
-       // double multiplier = Range.clip(rawSpeedMultiplier - gamepad1.right_trigger, 2, 1);  
-
-        //Arcade drive part of it: THe left stick controls speed while the right stick controls direction 
-        double leftPower = Range.clip(gamepad1.left_stick_y - gamepad1.right_stick_x, -1, 1); 
-        double rightPower = Range.clip(gamepad1.left_stick_y + gamepad1.right_stick_x,-1 ,1); 
-
-       // leftbackDrive.setPower(leftPower * multiplier);
+        // Ignore this code
+        //double multiplier = Range.clip(rawSpeedMultiplier - gamepad1.right_trigger, 2, 1);  
+        // leftbackDrive.setPower(leftPower * multiplier);
         //leftfrontDrive.setPower(leftPower * multiplier);
         //rightbackDrive.setPower(rightPower * multiplier);
-        //rightfrontDrive.setPower(rightPower * multiplier);    
+        //rightfrontDrive.setPower(rightPower * multiplier);  
+        // Ignore this code
 
-        leftbackDrive.setPower(leftPower );
-        leftfrontDrive.setPower(leftPower );
-        rightbackDrive.setPower(rightPower );
-        rightfrontDrive.setPower(rightPower );
+        //Arcade drive: The left stick controls speed while the right stick controls direction 
+        double leftPower = Range.clip(gamepad1.left_stick_y - gamepad1.right_stick_x, -1, 1); 
+        double rightPower = Range.clip(gamepad1.left_stick_y + gamepad1.right_stick_x,-1 ,1);  
+
+        leftbackDrive.setPower(leftPower);
+        leftfrontDrive.setPower(leftPower);
+        rightbackDrive.setPower(rightPower);
+        rightfrontDrive.setPower(rightPower);
 
         if(gamepad1.a){
 
-        leftbackDrive.setPower(1 );
-        leftfrontDrive.setPower(1 );
-        rightbackDrive.setPower(1 );
-        rightfrontDrive.setPower(1 ); 
+        leftbackDrive.setPower(1);
+        leftfrontDrive.setPower(1);
+        rightbackDrive.setPower(1);
+        rightfrontDrive.setPower(1); 
         }
      }   
     }
