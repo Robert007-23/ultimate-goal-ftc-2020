@@ -42,7 +42,7 @@ int rawSpeedMultiplier = 1;
         //rightfrontDrive.setPower(rightPower * multiplier);  
         // Ignore this code
 
-        //Arcade drive: The left stick controls speed while the right stick controls direction 
+        //tank drive: The left stick controls the left wheels while the right stick controls the right wheels
         double leftPower = Range.clip(gamepad1.left_stick_y - gamepad1.left_stick_x, -1, 1); 
         double rightPower = Range.clip(gamepad1.right_stick_y + gamepad1.right_stick_x,-1 ,1);  
 
@@ -51,7 +51,7 @@ int rawSpeedMultiplier = 1;
         rightbackDrive.setPower(rightPower);
         rightfrontDrive.setPower(rightPower);
 
-        if(gamepad1.a){
+        if(gamepad1.a){ // this looks for if you press the "A" button
 
         leftbackDrive.setPower(1);
         leftfrontDrive.setPower(1);
