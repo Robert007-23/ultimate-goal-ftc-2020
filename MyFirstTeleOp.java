@@ -24,7 +24,7 @@ int rawSpeedMultiplier = 1;
     leftfrontDrive = hardwareMap.get(DcMotor.class, "FLM");  
     rightfrontDrive = hardwareMap.get(DcMotor.class, "FRM");
     
-    // Reverse the motor that runs backwards when connected directly to the battery
+    // Reverse the motor that runs backwards when connected directly to the REV hub
     leftbackDrive.setDirection(DcMotor.Direction.FORWARD);
     rightbackDrive.setDirection(DcMotor.Direction.REVERSE);
     leftfrontDrive.setDirection(DcMotor.Direction.FORWARD);
